@@ -8,9 +8,12 @@ export const useSettingStore = defineStore({
     id: 'useSettingStore',
     state: ()=>({
         globalData: {
-            loading: false
+            loading: false,
         }
     }),
+    persist: { //开启持久化
+        enabled: true,
+    },
     getters: {
         // 获取用户信息
         getGlobalData() {
@@ -21,9 +24,5 @@ export const useSettingStore = defineStore({
     },
     actions: {
 
-    },
-    // @ts-ignore
-    persist: {
-        enabled: true,
     }
 });

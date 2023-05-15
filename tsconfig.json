@@ -1,21 +1,14 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["ESNext", "dom", "dom.iterable", "scripthost"],
-
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./src/*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
     },
-    "types": ["vitest/globals","pinia-plugin-persist"]
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
+  "compilerOptions": {
+    "types": ["element-plus/global"]
   }
 }

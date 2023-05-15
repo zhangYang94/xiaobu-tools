@@ -1,13 +1,13 @@
 <template>
-  <x-layout />
+  <custom-layout />
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
-import xLayout from './xLayout/index.vue'
-const router = useRouter()
+import customLayout from '@/customLayout/index.vue'
 
+const router = useRouter()
 const noMenu = ['/', '/welcome']
 
 const state = reactive({
