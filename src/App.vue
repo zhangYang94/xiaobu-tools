@@ -1,5 +1,6 @@
 <template>
-  <custom-layout />
+  <custom-layout v-if="state.showMenu"/>
+  <RouterView v-else />
 </template>
 
 <script setup lang="ts">
@@ -38,5 +39,11 @@ router.beforeEach((to, from, next) => {
 <style lang="less">
 body{
   margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+#app{
+  height: 100%;
+  width: 100%;
 }
 </style>

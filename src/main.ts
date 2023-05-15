@@ -5,8 +5,8 @@ import 'element-plus/dist/index.css'
 import { createPinia } from 'pinia'
 import piniaPersist from 'pinia-plugin-persist'
 import router from './router'
-
-
+import './assets/fonts/TheFont.css'
+import 'virtual:windi.css'
 
 const pinia = createPinia();
 pinia.use(piniaPersist);
