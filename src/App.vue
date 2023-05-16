@@ -1,49 +1,61 @@
 <template>
-  <custom-layout v-if="state.showMenu"/>
-  <RouterView v-else />
+  <el-page-header class="page-header" v-if="state.showMenu" @back="goBack">
+    <template #content>
+      <div class="flex items-center">
+        <el-avatar :size="32" class="mr-3"
+            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+        />
+        <span class="text-large font-600 mr-3 art-text"> {{ pageData.title }} </span>
+      </div>
+    </template>
+    <template #extra>
+      <div class="flex items-center">
+        <el-icon color="#fbbf24" :size="24"><Sunny /></el-icon>
+      </div>
+    </template>
+  </el-page-header>
+  <div class="page-container">
+    <RouterView />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { reactive } from 'vue'
-import customLayout from '@/customLayout/index.vue'
+import { useSettingStore } from  '@/stores/modules/useSettingStore'
+import {storeToRefs} from "pinia";
+const { pageData } = storeToRefs(useSettingStore());
 
 const router = useRouter()
-const noMenu = ['/', '/welcome']
+const noMenu = ['/']
 
 const state = reactive({
   showMenu: true,
   currentPath: '/'
 })
-
+// 页面跳转
 router.beforeEach((to, from, next) => {
   state.showMenu = !noMenu.includes(to.path)
   state.currentPath = to.path
-  // 判断是否包含左侧边栏
-  if (noMenu.includes(to.path)) {
-    next()
-  } else {
-    next()
-    // 如果不是首页，判断是否有 token
-    /*if (!Storage.getLocalStorage('token')) {
-      $message.error('请重新登录')
-      next({ path: '/' })
-    } else {
-      next()
-    }*/
-  }
+  next()
 })
+// 返回上一层
+const goBack = () => {
+  router.back();
+}
 
 </script>
 
 <style lang="less">
-body{
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
+@import "@/assets/main.css";
+.page-header{
+  padding: 20px 30px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
-#app{
-  height: 100%;
+.page-container{
   width: 100%;
+  flex: 1;
+  padding: 20px 30px 0;
 }
 </style>

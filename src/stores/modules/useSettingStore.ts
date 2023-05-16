@@ -3,12 +3,18 @@
  */
 import { defineStore } from 'pinia';
 
+type pageDataType = {
+    title: string
+}
 
 export const useSettingStore = defineStore({
     id: 'useSettingStore',
     state: ()=>({
         globalData: {
             loading: false,
+        },
+        pageData: {
+            title: '',//页面标题
         }
     }),
     persist: { //开启持久化
@@ -23,6 +29,8 @@ export const useSettingStore = defineStore({
         }
     },
     actions: {
-
+        updatePageData(obj: pageDataType) {
+           this.pageData = Object.assign(this.pageData, obj);
+        },
     }
 });
