@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'home',
       component: () => import('@/views/Home/index.vue')
     },
+    {
+      path:'/web',
+      name: 'web',
+      component: () => import('@/views/CommonUsedWeb/index.vue')
+    }
   ]
 })
 

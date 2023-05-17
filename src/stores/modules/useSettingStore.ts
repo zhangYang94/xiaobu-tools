@@ -4,7 +4,8 @@
 import { defineStore } from 'pinia';
 
 type pageDataType = {
-    title: string
+    title: string,
+    icon: string
 }
 
 export const useSettingStore = defineStore({
@@ -15,6 +16,7 @@ export const useSettingStore = defineStore({
         },
         pageData: {
             title: '',//页面标题
+            icon:'', //图标
         }
     }),
     persist: { //开启持久化

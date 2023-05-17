@@ -9,6 +9,7 @@ VUE3.x + element-plus + Tailwind CSS + VITE + vue-router + Pinia
 #### 构建工具: [VITE](https://cn.vitejs.dev/guide/)
 #### 状态管理: [Pinia](https://pinia.web3doc.top/)
 #### 路由管理: [vue-router](https://router.vuejs.org/zh/guide/)
+#### hooks方法：[vueuse](https://vueuse.org/)
 
 ## 开始体验==> [项目地址](https://github.com/zhangYang94/xiaobu-tools)
 ```
