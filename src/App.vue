@@ -12,9 +12,11 @@
       </div>
     </template>
   </el-page-header>
-  <div class="page-container">
-    <RouterView />
-  </div>
+  <el-scrollbar>
+    <div class="page-container">
+      <RouterView />
+    </div>
+  </el-scrollbar>
 </template>
 
 <script setup lang="ts">
@@ -46,6 +48,7 @@ const goBack = () => {
 
 <style lang="less">
 @import "@/assets/main.css";
+@import "@/assets/styles/common.less";
 .page-header{
   padding: 20px 30px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -53,7 +56,8 @@ const goBack = () => {
 }
 .page-container{
   width: 100%;
-  flex: 1;
+  height: calc(100% - 72px);
   padding: 20px 30px 0;
+  box-sizing: border-box;
 }
 </style>

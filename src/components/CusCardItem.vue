@@ -29,7 +29,7 @@
  */
 import {ref,defineProps} from 'vue';
 import {useClipboard} from "@vueuse/core";
-import { ElMessage } from 'element-plus'
+import {ElMessage} from 'element-plus'
 
 const { copy } = useClipboard();
 // props属性值

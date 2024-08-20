@@ -1,0 +1,36 @@
+.custom-title{
+    
+}
+
+
+
+
+.backtop{
+    height: 100%;
+    width: 100%;
+    background-color: var(--el-bg-color-overlay);
+    box-shadow: var(--el-box-shadow-lighter);
+    text-align: center;
+    line-height: 40px;
+    color: #1989fa;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.js-container{
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100vh - 72px);
+    margin: -20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 10px;
+    padding: 20px;
+
+    .card{
+        min-height: 200px;
+    }
+}

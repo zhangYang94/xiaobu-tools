@@ -6,21 +6,20 @@
 
     </div>
     <div class="carousel">
-      <el-carousel :interval="4000" type="card" @change="carouselChange">
-        <el-carousel-item v-for="(item,index) in mainData" :key="index">
-          <el-card class="box-card" :class="isActive === index ? 'isActive':''" shadow="hover">
-            <template #header>
-              <div class="card-header">
-                <span>{{ item.title }}</span>
-                <el-button class="btn" v-if="isActive === index" type="success" round @click="toTools(item)">
-                  Go <el-icon class="ml-2"><Pointer /></el-icon>
-                </el-button>
-              </div>
-            </template>
-            <div v-for="o in 4" :key="o" class="">{{ 'List item ' + o }}</div>
-          </el-card>
-        </el-carousel-item>
-      </el-carousel>
+      <el-card class="box-card" v-for="(item,index) in mainData" :key="index" 
+      :class="isActive === index ? 'isActive':''" 
+      shadow="hover"
+      @click="isActive = index">
+          <template #header>
+            <div class="card-header">
+              <span>{{ item.title }}</span>
+              <el-button class="btn" v-if="isActive === index" type="success" round @click="toTools(item)">
+                Go <el-icon class="ml-2"><Pointer /></el-icon>
+              </el-button>
+            </div>
+          </template>
+          <div v-for="o in 4" :key="o" class="">{{ 'List item ' + o }}</div>
+      </el-card>
     </div>
   </div>
 </template>
@@ -33,7 +32,7 @@
  */
 import {ref} from 'vue';
 import {useRouter} from "vue-router";
-import {mainData,mainDataType} from "@/const/BaseData";
+import {mainData,type mainDataType} from "@/const/BaseData";
 import { useSettingStore } from  '@/stores/modules/useSettingStore'
 
 const router = useRouter();
@@ -72,6 +71,14 @@ const carouselChange = (el) => {
   .carousel{
     width: 80%;
     margin: 5rem auto;
+    display: grid;
+    // 使用grid，里面元素宽度500px，自适应换行
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 1rem;
+
+    .box-card{
+      cursor: pointer;
+    }
   }
   .card-header {
     display: flex;
@@ -81,7 +88,7 @@ const carouselChange = (el) => {
   .isActive{
     background-color: var(--base-success-color);
     color: var(--vt-c-white);
-
+    transition: all 0.5s;
     .btn{
       border: 1px solid var(--vt-c-white);
     }

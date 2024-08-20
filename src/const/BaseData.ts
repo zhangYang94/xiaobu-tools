@@ -2,12 +2,12 @@ export const mainData = [
     {
         title: '工具', //名称
         icon:'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png', //图标
-        name:'home', //跳转的页面名称
+        name:'Tools', //跳转的页面名称
     },
     {
         title: '常用JS方法',
         icon:'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-        name:'home', //跳转的页面名称
+        name:'JS', //跳转的页面名称
     },
     {
         title: '常用CSS样式',

@@ -17,6 +17,11 @@ const router = createRouter({
       path:'/web',
       name: 'web',
       component: () => import('@/views/CommonUsedWeb/index.vue')
+    },
+    {
+      path:'/js',
+      name: 'js',
+      component: () => import('@/views/JS/index.vue')
     }
   ]
 })
